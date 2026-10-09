@@ -1,6 +1,6 @@
 # How LawyeredOS works
 
-This guide explains what is inside the LawyeredOS **0.2.0 beta.1** download for macOS, what each part does, and which parts are tested versus experimental. It describes that release only. Later builds may differ.
+This guide explains what is inside the LawyeredOS **0.2.0 beta.2** download for macOS, what each part does, and which parts are tested versus experimental. It describes that release only. Later builds may differ.
 
 LawyeredOS is software, not legal advice. Claude can make material errors. Verify facts, law, deadlines, calculations, document changes and final work before you rely on them or send, sign, file or serve anything.
 
@@ -35,7 +35,7 @@ LawyeredOS has four parts that work together:
 
 You open the extracted `lawyeredos` folder in the Code tab, choose Local, and ask Claude to set it up. A setup skill gathers your choices (workspace folder, branding label, optional modules, jurisdiction profile) and then hands every write to a setup wizard script.
 
-The wizard shows the complete plan first and only applies it after you approve. It creates a versioned copy of the package, the project skills and review agent, a private configuration file, an empty matter register and launchers. It does not change your global Claude settings and does not ask for passwords or tokens. Updates install alongside the previous version, and a rollback undoes only the most recent setup change while keeping anything you edited afterwards.
+The wizard shows the complete plan first and only applies it after you approve. It creates a versioned copy of the package, the project skills and review agent, a private configuration file, an empty matter register and launchers. It does not change your global Claude settings and does not ask for passwords or tokens. It also makes email a visible choice: connect Gmail through Claude, skip it safely, or use the experimental local read-only adapter. Updates install alongside the previous version, and a rollback undoes only the most recent setup change while keeping anything you edited afterwards.
 
 For a first try, use a new empty folder and the fictional example matter included in the download.
 
@@ -61,7 +61,7 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
   - `voice_lint.py` checks outgoing letter or email text against configurable style rules.
 - **Needs:** Nothing extra for the core workflow. PDF text extraction needs Poppler. OCR needs OCRmyPDF.
 - **Status:** Core orientation is tested. OCR is experimental and was not verified on the test machine.
-- **Email:** Live Gmail is experimental and off by default (see below). When it is off, Claude should tell you email was not checked rather than implying it was.
+- **Email:** Setup never silently turns Gmail off. You choose Claude's Gmail connector, a safe skip, or the experimental local `gmail.readonly` adapter. The wizard cannot verify a Claude connector; only a successful bounded read in the active session proves it is connected for that request. LawyeredOS does not auto-send or change mailbox state.
 
 ### 3. Matter tracker (`lawyeredos-matter-tracker`)
 
@@ -101,7 +101,7 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
 
 ## Tested, experimental and not included
 
-| Area | Status in 0.2.0 beta.1 |
+| Area | Status in 0.2.0 beta.2 |
 |---|---|
 | macOS, Claude desktop Code tab, Local session, Python 3.12 | Tested |
 | Matter register and matter orientation | Tested |
@@ -109,7 +109,8 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
 | Word letters and simple tracked-change redlines | Tested (optional modules) |
 | Setup, update and rollback | Tested |
 | Full four-angle review | Experimental |
-| Live Gmail | Experimental, off by default. Read-only search of sender, recipient, subject, date and a short preview of each message. Does not open attachments. Tested only with simulated responses. |
+| Claude Gmail connector | Supported by Claude and configured through Google's user-facing consent flow. LawyeredOS cannot verify authorization locally and has not run a real-mail acceptance test. A successful bounded read is required before reporting it connected. The connector may expose send and mailbox actions; LawyeredOS does not invoke them. |
+| Local Gmail REST adapter | Experimental explicit opt-in using a separately provisioned `gmail.readonly` token. Read-only search of sender, recipient, subject, date and a short preview. Tested only with simulated responses. |
 | Live Google Calendar | Experimental, off by default. Tested only with simulated responses. |
 | OCR of scanned PDFs | Experimental, not verified on the test machine |
 | Python 3.11 or 3.13+ | Within the declared range, not tested |
@@ -124,13 +125,13 @@ The optional Ontario profile adds workflow guardrails only, such as reminders to
 - **Matter files:** in the workspace folder you choose. LawyeredOS does not move or rename them.
 - **Matter register:** a local SQLite database in your workspace.
 - **Settings:** a private configuration file in your workspace.
-- **Passwords and tokens:** never stored by LawyeredOS. The optional live connections read a token from an environment variable you name.
+- **Passwords and tokens:** never stored by LawyeredOS. Claude's connector authenticates directly with Google. The experimental REST connections read a token from an environment variable you name.
 - **What goes to Anthropic:** whatever Claude reads or writes in the session may be processed by Anthropic under your Claude account and terms.
 
 ## Licence and source
 
 LawyeredOS is free and open source under GPL-3.0-or-later. The bundled redline engine keeps its MIT licence. The download includes the full source, the install, update, rollback, dependency and troubleshooting guides, and fictional examples.
 
-Download: [LawyeredOS 0.2.0 beta.1 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.1.zip)
+Download: [LawyeredOS 0.2.0 beta.2 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.2.zip)
 
-SHA-256: `f949d6d33d449b674c5fd1e290646b1b53b2cdf497e2c48d60ab88f09c8177cc`
+SHA-256: `0f3eccf6e62e0bcb7ffbb88a6c14dd2f96c8a05acba73b93bb4bff3173af7cd5`
