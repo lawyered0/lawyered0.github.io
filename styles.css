@@ -69,7 +69,7 @@ img, svg { display: block; max-width: 100%; }
 .nav-toggle > span:not(.sr-only) { display: block; width: 23px; height: 1px; margin: 7px auto; background: currentColor; transition: transform .2s ease; }
 
 .hero { position: relative; min-height: 820px; padding: 164px 0 100px; overflow: hidden; }
-.compact-hero { min-height: 720px; display: grid; align-items: center; }
+.compact-hero { min-height: 620px; display: grid; align-items: center; }
 .compact-hero-layout { position: relative; }
 .compact-hero .hero-copy { max-width: 900px; }
 .compact-hero .hero-lede { max-width: 720px; font-size: 21px; }
@@ -130,17 +130,20 @@ img, svg { display: block; max-width: 100%; }
 .intro-strip p:first-child { font-family: Georgia, serif; font-size: 23px; font-style: italic; }
 .intro-strip p:last-child { max-width: 700px; font-size: 14px; font-weight: 650; }
 
-.compact-section { padding: 92px 0; }
+.compact-section { padding: 82px 0; }
 .compact-heading { max-width: 760px; }
 .compact-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 52px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .compact-steps article { min-height: 220px; padding: 27px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .compact-steps article > span { color: #77818e; font-size: 9px; font-weight: 800; letter-spacing: .12em; }
 .compact-steps h3 { margin: 48px 0 10px; font: 400 26px/1.1 Georgia, serif; letter-spacing: -.025em; }
 .compact-steps p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
-.compact-setup { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+.compact-setup { display: grid; grid-template-columns: 1fr .55fr; gap: 72px; align-items: center; }
 .compact-setup h2 { margin: 0; font: 400 clamp(49px, 5vw, 72px)/.96 Georgia, serif; letter-spacing: -.055em; }
 .compact-setup > div > p:not(.kicker) { max-width: 570px; margin: 25px 0 0; color: var(--muted); }
 .compact-setup .setup-safety { font-size: 13px; }
+.setup-notes { padding: 28px; background: #eef1f6; border-left: 3px solid var(--acid-2); }
+.setup-notes strong { display: block; font: 400 24px/1.15 Georgia, serif; }
+.setup-notes p { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .compact-release { display: grid; grid-template-columns: 1fr .65fr; gap: 100px; align-items: center; }
 .short-scope { padding: 30px; background: rgba(255,255,255,.06); border: 1px solid var(--line-light); }
 .short-scope h3 { margin: 0 0 18px; font: 400 26px/1.1 Georgia, serif; }

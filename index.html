@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="LawyeredOS gives Claude the skills to work on legal matters, keep track of progress, and help with what comes next.">
+  <meta name="description" content="Open-source Claude skills that work with matter files, preserve recorded history and state, and help lawyers move work forward.">
   <meta name="theme-color" content="#15181d">
   <title>LawyeredOS — Claude skills for legal work</title>
   <link rel="stylesheet" href="styles.css">
@@ -25,9 +25,9 @@
       <div class="shell compact-hero-layout">
         <div class="hero-copy">
           <div class="eyebrow-row"><span class="status-dot"></span><span>Free, open-source Claude skills · macOS public beta</span></div>
-          <h1>Your files. Your AI assistant. <em>You’re in charge.</em></h1>
-          <p class="hero-lede">LawyeredOS gives Claude the skills to work on your matters, keep track of progress, and help you decide and do what comes next.</p>
-          <p class="hero-support">Bring your own Claude subscription. No second legal-software dashboard.</p>
+          <h1>Claude with the right skills. <em>Not another legal SaaS.</em></h1>
+          <p class="hero-lede">Work from the matter files you choose. Keep recorded history and state in your workspace. Identify and execute the next step under lawyer oversight.</p>
+          <p class="hero-support">Free and open source. Bring your own Claude subscription.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="downloads/lawyeredos-0.2.0-macos-beta.1.zip" download>Download macOS beta.1 <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" href="#how">See how it works <span aria-hidden="true">→</span></a>
@@ -41,26 +41,26 @@
       <div class="shell">
         <div class="section-heading compact-heading"><p class="kicker">How it works</p><h2>Pick up the matter<br>where you left it.</h2></div>
         <div class="compact-steps">
-          <article><span>01</span><h3>Open the matter</h3><p>Claude works from the local files and exact matter you choose.</p></article>
-          <article><span>02</span><h3>Get oriented</h3><p>LawyeredOS uses recorded matter history and next actions—not vague chat memory.</p></article>
-          <article><span>03</span><h3>Move it forward</h3><p>Ask Claude to draft, review, redline, or preview an update. You approve material changes.</p></article>
+          <article><span>01</span><h3>Choose the matter</h3><p>Claude works from the exact local files and matter you select.</p></article>
+          <article><span>02</span><h3>Recover the thread</h3><p>Recorded history and state help Claude show the position, uncertainties, and next action.</p></article>
+          <article><span>03</span><h3>Move it forward</h3><p>Draft, review, redline, or preview an update. You verify the work and approve material changes.</p></article>
         </div>
       </div>
     </section>
 
     <section id="setup" class="section setup-section compact-section">
       <div class="shell compact-setup">
-        <div>
+        <div class="setup-main">
           <p class="kicker">Setup</p>
           <h2>Open. Ask. Review.</h2>
           <p>Download and extract the ZIP. Open its folder in the Claude desktop app’s <strong>Code</strong> tab and choose <strong>Local</strong>. Then paste:</p>
           <div class="install-prompt" role="group" aria-label="Copyable LawyeredOS setup prompt">Set up LawyeredOS for me. Follow the setup instructions in this folder, ask me what you need, and check with me before changing existing files.</div>
-          <p class="setup-safety">Claude shows the setup plan before writing. Start with a new empty workspace and fictional data. Complete install, update, rollback, dependency, and troubleshooting instructions are included in the download.</p>
+          <p class="setup-safety">Claude shows the complete setup plan before writing. Start with a new empty workspace and fictional data.</p>
         </div>
-        <figure class="capture-frame">
-          <img src="wizard-terminal.png" alt="LawyeredOS setup wizard showing a fictional preview before any changes.">
-          <figcaption>Preview first: paths, dependencies, and planned changes are shown before setup applies them.</figcaption>
-        </figure>
+        <aside class="setup-notes" aria-label="Setup details">
+          <strong>No terminal required</strong>
+          <p>The normal path is prompt-first in Desktop Code Local. A terminal fallback and complete install, update, rollback, dependency, and troubleshooting instructions are included in the download.</p>
+        </aside>
       </div>
     </section>
 
@@ -69,14 +69,14 @@
         <div class="release-copy">
           <p class="kicker kicker-light">Public macOS beta</p>
           <h2>Try LawyeredOS.</h2>
-          <p>Free and open source under GPL-3.0-or-later. The development repository stays private; each tested build is published here as a complete, versioned source ZIP.</p>
+          <p>Free and open source under GPL-3.0-or-later. Download the complete, versioned source ZIP and open it directly in Desktop Code Local.</p>
           <a class="button button-primary local-download" href="downloads/lawyeredos-0.2.0-macos-beta.1.zip" download>Download version 0.2.0 beta.1 <span aria-hidden="true">↓</span></a>
           <p class="download-note">SHA-256: <code>f949d6d33d449b674c5fd1e290646b1b53b2cdf497e2c48d60ab88f09c8177cc</code></p>
         </div>
         <aside class="short-scope" aria-label="Beta scope">
           <h3>Current beta scope</h3>
           <p>Verified on macOS with Claude Desktop Code in a Local session and Python 3.12.</p>
-          <p>OCR, live Gmail and Calendar, the complete four-lens review, and other operating systems remain experimental or unverified.</p>
+          <p>Windows and other operating systems are not supported. OCR, live Gmail and Calendar, and the complete multi-lens review remain experimental or optional.</p>
         </aside>
       </div>
     </section>
