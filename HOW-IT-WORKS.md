@@ -1,24 +1,24 @@
 # How LawyeredOS works
 
-This guide explains what is inside the LawyeredOS **0.2.0 beta.2** download for macOS, what each part does, and which parts are tested versus experimental. It describes that release only. Later builds may differ.
+This guide explains the LawyeredOS **Claude 0.2.0 beta.2** and **Codex 0.2.0 beta.1** downloads for macOS, what each part does, and which parts are tested versus experimental. It describes those releases only. Later builds may differ.
 
-LawyeredOS is software, not legal advice. Claude can make material errors. Verify facts, law, deadlines, calculations, document changes and final work before you rely on them or send, sign, file or serve anything.
+LawyeredOS is software, not legal advice. Claude and Codex can make material errors. Verify facts, law, deadlines, calculations, document changes and final work before you rely on them or send, sign, file or serve anything.
 
 ## The short version
 
 LawyeredOS has four parts that work together:
 
-1. **Skills guide Claude through the work.** A skill is a written set of instructions that Claude follows for one kind of task, such as getting up to speed on a matter or preparing a letter. Skills tell Claude what to check, what order to work in, and where it must stop and ask you.
-2. **Python scripts do the repeatable operations.** Anything that should happen the same way every time, such as reading the matter register, saving a file without overwriting another one, or applying tracked changes to a Word document, is done by a bundled script rather than left to Claude's judgment.
-3. **The matter database keeps the record between sessions.** Each matter has a row in a local SQLite database with its file number, client, folder, status, next action, key dates and an append-only timeline. When you come back to a matter in a new session, Claude reads that record instead of relying on chat memory.
-4. **You direct and approve.** You choose the matter and the task. Claude shows a preview of any change to the register or any saved file before it is made, and nothing is written until you approve it. LawyeredOS never sends, signs, files or serves anything, and it never treats reading a document as permission to act on it.
+1. **Skills guide Claude or Codex through the work.** A skill is a written set of instructions for one kind of task, such as getting up to speed on a matter or preparing a letter. Skills say what to check, what order to work in, and where the AI assistant must stop and ask you.
+2. **Python scripts do the repeatable operations.** Anything that should happen the same way every time, such as reading the matter register, saving a file without overwriting another one, or applying tracked changes to a Word document, is done by a bundled script rather than left to the AI assistant's judgment.
+3. **The matter database keeps the record between sessions.** Each matter has a row in a local SQLite database with its file number, client, folder, status, next action, key dates and an append-only timeline. In a new session, Claude or Codex reads that record instead of relying on chat memory.
+4. **You direct and approve.** You choose the matter and the task. The AI assistant shows a preview of any change to the register or any saved file before it is made, and nothing is written until you approve it. LawyeredOS never sends, signs, files or serves anything, and it never treats reading a document as permission to act on it.
 
 ## What LawyeredOS does not do
 
-- **It does not remember everything.** Claude knows what is in the matter register, the matter brief and the files it reads in that session. If something was never recorded or saved, it is not remembered.
-- **It does not work in the background.** Nothing runs on a schedule or while Claude is closed. Every action starts with a request from you in a Claude session.
-- **It does not run on Windows or Linux.** This beta is tested only on macOS, in the Claude desktop app's Code tab with a Local session.
-- **It is not offline.** Your files stay in folders you choose, but Claude may send selected file content to Anthropic under your Claude account, plan, settings and terms. Check those controls and your professional obligations before using client data.
+- **It does not remember everything.** The AI assistant knows what is in the matter register, the matter brief and the files it reads in that session. If something was never recorded or saved, it is not remembered.
+- **It does not work in the background.** Nothing runs on a schedule while Claude or Codex is closed. Every action starts with a request from you in an active session.
+- **It does not run on Windows or Linux.** Both beta packages are tested only on macOS: Claude in Desktop Code Local and Codex in a local project.
+- **It is not offline.** Your files stay in folders you choose, but selected content may be processed by Anthropic or OpenAI under your account, plan, settings and terms. Check those controls and your professional obligations before using client data.
 - **It is not a full practice-management system.** There is no billing, trust accounting, conflict clearance, legal research or deadline calculator.
 
 ## Requirements
@@ -26,33 +26,33 @@ LawyeredOS has four parts that work together:
 | Item | Status |
 |---|---|
 | macOS | Required |
-| Claude desktop app, Code tab, Local session | Required. This is the tested setup. |
+| Supported host | Choose Claude Desktop, Code tab, Local session; or OpenAI Codex with a local project. |
 | Python | 3.11 or newer required. 3.12 is the fully tested version. |
-| Claude subscription or plan | Required and paid separately to Anthropic. LawyeredOS itself is free. |
-| Terminal `claude` command | Optional fallback only. |
+| Claude or Codex access | Required for the matching package and paid separately to Anthropic or OpenAI. LawyeredOS itself is free. |
+| Terminal `claude` command | Optional fallback for the Claude package only. |
 
 ## Setup
 
-You open the extracted `lawyeredos` folder in the Code tab, choose Local, and ask Claude to set it up. A setup skill gathers your choices (workspace folder, branding label, optional modules, jurisdiction profile) and then hands every write to a setup wizard script.
+Download the package for your host. For Claude, open the extracted `lawyeredos` folder in the desktop app's Code tab and choose Local. For Codex, open the extracted folder as a local Codex project. Then ask your AI assistant to set up LawyeredOS in a new private workspace using fictional data. A setup skill gathers your choices (workspace folder, branding label, optional modules, jurisdiction profile) and hands every write to a setup wizard script.
 
-The wizard shows the complete plan first and only applies it after you approve. It creates a versioned copy of the package, the project skills and review agent, a private configuration file, an empty matter register and launchers. It does not change your global Claude settings and does not ask for passwords or tokens. It also makes email a visible choice: connect Gmail through Claude, skip it safely, or use the experimental local read-only adapter. Updates install alongside the previous version, and a rollback undoes only the most recent setup change while keeping anything you edited afterwards.
+The wizard shows the complete plan first and only applies it after you approve. It creates a versioned copy of the package, the project skills and review workflow, a private configuration file, an empty matter register and launchers. It does not overwrite global Claude or Codex settings and does not ask for passwords or tokens. Email is always a visible choice. Claude can use its user-authorized Gmail connector, skip email safely, or use the experimental local read-only adapter. Codex can use an already-authorized supported session read tool when one is actually available, skip email safely, or use the experimental local read-only adapter. Setup never assumes Gmail is connected and never enables sending. Updates install alongside the previous version, and a rollback undoes only the most recent setup change while keeping anything you edited afterwards.
 
 For a first try, use a new empty folder and the fictional example matter included in the download.
 
 ## The skills
 
-Seven skills come with this release, plus one review agent. Each entry lists what the skill does, the scripts it uses and anything extra it needs.
+Each package includes seven skills and a host-specific review workflow. Each entry lists what the skill does, the scripts it uses and anything extra it needs.
 
 ### 1. Setup (`lawyeredos-setup`)
 
 - **What it does:** Walks you through installation, update and rollback in plain conversation. It cannot edit files itself; the wizard does all the writing after you approve the plan.
 - **Scripts:** `setup_wizard.py` (plans and applies setup), `validate_setup.py` (checks the finished install), `setup_demo.py` (builds the fictional demo).
-- **Needs:** Python only for the first preview. If a module you pick needs extra Python packages, Claude shows the exact install commands and asks before running them.
+- **Needs:** Python only for the first preview. If a module you pick needs extra Python packages, Claude or Codex shows the exact install commands and asks before running them.
 - **Status:** Tested on macOS.
 
 ### 2. Work on a matter (`lawyeredos-work-on-matter`)
 
-- **What it does:** Gets Claude up to speed on one exact matter. It looks up the matter in the register, confirms the folder is the right one inside your workspace, reads the matter brief (`_matter-brief.md`) and lists the most recent files. Claude then reads the relevant documents and tells you where things stand, what is uncertain and one recommended next step. A general orientation is read-only. If the matter is ambiguous or the folder is missing, it stops rather than guessing.
+- **What it does:** Gets Claude or Codex up to speed on one exact matter. It looks up the matter in the register, confirms the folder is the right one inside your workspace, reads the matter brief (`_matter-brief.md`) and lists the most recent files. The AI assistant then reads the relevant documents and tells you where things stand, what is uncertain and one recommended next step. A general orientation is read-only. If the matter is ambiguous or the folder is missing, it stops rather than guessing.
 - **Scripts:**
   - `matter_context.py` looks up the matter and returns the brief (up to 30,000 characters) and a list of recent files (20 by default).
   - `safe_output.py` saves a requested draft only after a preview, and never overwrites an existing file.
@@ -61,7 +61,7 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
   - `voice_lint.py` checks outgoing letter or email text against configurable style rules.
 - **Needs:** Nothing extra for the core workflow. PDF text extraction needs Poppler. OCR needs OCRmyPDF.
 - **Status:** Core orientation is tested. OCR is experimental and was not verified on the test machine.
-- **Email:** Setup never silently turns Gmail off. You choose Claude's Gmail connector, a safe skip, or the experimental local `gmail.readonly` adapter. The wizard cannot verify a Claude connector; only a successful bounded read in the active session proves it is connected for that request. LawyeredOS does not auto-send or change mailbox state.
+- **Email:** Setup never silently turns Gmail off or assumes a connection. Claude offers its Gmail connector, a safe skip, or the experimental local `gmail.readonly` adapter. Codex offers an already-authorized supported session read tool when available, the same safe skip, or the experimental adapter. Only a successful bounded read in the active session proves email is available for that request. LawyeredOS does not auto-send or change mailbox state.
 
 ### 3. Matter tracker (`lawyeredos-matter-tracker`)
 
@@ -72,7 +72,7 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
 
 ### 4. Letters (`lawyeredos-letterhead`)
 
-- **What it does:** Creates a formal Word letter from your configured template, then renders it so Claude can check every page for layout problems, leftover placeholders, comments and hidden metadata. It saves an internal draft only. It does not send, sign or serve.
+- **What it does:** Creates a formal Word letter from your configured template, then renders it so Claude or Codex can check every page for layout problems, leftover placeholders, comments and hidden metadata. It saves an internal draft only. It does not send, sign or serve.
 - **Scripts:** `create_letter.py` (builds the letter), `render_docx.py` (converts it to PDF and page images for checking), `build_neutral_template.py` (rebuilds the plain template included in the download).
 - **Needs:** `python-docx`. LibreOffice and Poppler are recommended for the visual check.
 - **Status:** Optional module. Tested with the neutral template.
@@ -93,23 +93,25 @@ Seven skills come with this release, plus one review agent. Each entry lists wha
 
 ### 7. Multi-perspective review (`lawyeredos-adversarial-panel`)
 
-- **What it does:** Challenges an important draft from four angles: an opposing reader, a fact and source check, privilege and admissions, and a pre-mortem of what could go wrong. Each angle runs as a separate read-only Claude reviewer that cannot edit, browse or run commands. Claude then checks the findings against the sources and confirms the draft was not changed during the review. It never rewrites or sends the draft.
+- **What it does:** Challenges an important draft from four angles: an opposing reader, a fact and source check, privilege and admissions, and a pre-mortem of what could go wrong. Each angle runs through the host's bounded review workflow. The lead session checks the findings against the sources and confirms the draft was not changed during the review. It never rewrites or sends the draft.
 - **Scripts:** `review_bundle.py` (fingerprints the draft and sources before and after), `review_orchestrator.py` (prepares the four review tasks and checks that every result came back complete).
-- **Agent:** `lawyeredos-legal-review-lens`, the read-only reviewer.
-- **Needs:** Nothing extra. It uses Claude only, with no other AI service.
-- **Status:** **Experimental** as a complete four-angle review. One single-angle run has been accepted on the test machine.
+- **Agent:** Claude uses `lawyeredos-legal-review-lens`; Codex uses four read-only reviewer tasks where host support is available.
+- **Needs:** Nothing beyond the selected host.
+- **Status:** **Experimental** as a complete four-angle review. The Codex candidate completed a fictional four-reviewer acceptance run. Claude's accepted test was a single-angle run.
 
 ## Tested, experimental and not included
 
-| Area | Status in 0.2.0 beta.2 |
+| Area | Status in the current macOS betas |
 |---|---|
-| macOS, Claude desktop Code tab, Local session, Python 3.12 | Tested |
+| macOS, Python 3.12, Claude Desktop Code Local | Tested in Claude beta.2 |
+| macOS, Python 3.12, Codex local project and project-local skills | Tested in Codex beta.1 |
 | Matter register and matter orientation | Tested |
 | Previewed, no-overwrite saves | Tested |
 | Word letters and simple tracked-change redlines | Tested (optional modules) |
 | Setup, update and rollback | Tested |
 | Full four-angle review | Experimental |
 | Claude Gmail connector | Supported by Claude and configured through Google's user-facing consent flow. LawyeredOS cannot verify authorization locally and has not run a real-mail acceptance test. A successful bounded read is required before reporting it connected. The connector may expose send and mailbox actions; LawyeredOS does not invoke them. |
+| Codex email access | Not assumed. Setup uses an already-authorized supported session read tool only when it is actually available, otherwise it offers a safe skip or the experimental local adapter. No real-mail acceptance test was run. |
 | Local Gmail REST adapter | Experimental explicit opt-in using a separately provisioned `gmail.readonly` token. Read-only search of sender, recipient, subject, date and a short preview. Tested only with simulated responses. |
 | Live Google Calendar | Experimental, off by default. Tested only with simulated responses. |
 | OCR of scanned PDFs | Experimental, not verified on the test machine |
@@ -125,13 +127,18 @@ The optional Ontario profile adds workflow guardrails only, such as reminders to
 - **Matter files:** in the workspace folder you choose. LawyeredOS does not move or rename them.
 - **Matter register:** a local SQLite database in your workspace.
 - **Settings:** a private configuration file in your workspace.
-- **Passwords and tokens:** never stored by LawyeredOS. Claude's connector authenticates directly with Google. The experimental REST connections read a token from an environment variable you name.
-- **What goes to Anthropic:** whatever Claude reads or writes in the session may be processed by Anthropic under your Claude account and terms.
+- **Passwords and tokens:** never stored by LawyeredOS. Host-managed connectors authenticate through their own user-facing flows. Experimental REST connections read a token from an environment variable you name.
+- **What goes to the AI provider:** whatever Claude or Codex reads or writes in the session may be processed by Anthropic or OpenAI under your account, settings and terms.
 
 ## Licence and source
 
 LawyeredOS is free and open source under GPL-3.0-or-later. The bundled redline engine keeps its MIT licence. The download includes the full source, the install, update, rollback, dependency and troubleshooting guides, and fictional examples.
 
-Download: [LawyeredOS 0.2.0 beta.2 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.2.zip)
+Downloads:
 
-SHA-256: `0f3eccf6e62e0bcb7ffbb88a6c14dd2f96c8a05acba73b93bb4bff3173af7cd5`
+- [Claude 0.2.0 beta.2 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.2.zip)
+- [Codex 0.2.0 beta.1 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-codex-beta.1.zip)
+
+Claude SHA-256: `0f3eccf6e62e0bcb7ffbb88a6c14dd2f96c8a05acba73b93bb4bff3173af7cd5`
+
+Codex SHA-256: `b468300f81bfdcc88398964a2808f6484c5cd2fb56b44d48e6721ab2d7d6e366`
