@@ -141,10 +141,18 @@ img, svg { display: block; max-width: 100%; }
 .compact-setup h2 { margin: 0; font: 400 clamp(49px, 5vw, 72px)/.96 Georgia, serif; letter-spacing: -.055em; }
 .compact-setup > div > p:not(.kicker) { max-width: 570px; margin: 25px 0 0; color: var(--muted); }
 .compact-setup .setup-safety { font-size: 13px; }
+.setup-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 25px; }
+.setup-choices article { padding: 18px; background: #f1f3f7; border: 1px solid var(--line); }
+.setup-choices h3, .download-grid h3 { margin: 0 0 8px; font: 400 22px/1.15 Georgia, serif; }
+.setup-choices p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .setup-notes { padding: 28px; background: #eef1f6; border-left: 3px solid var(--acid-2); }
 .setup-notes strong { display: block; font: 400 24px/1.15 Georgia, serif; }
 .setup-notes p { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .compact-release { display: grid; grid-template-columns: 1fr .65fr; gap: 100px; align-items: center; }
+.download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+.download-grid article { min-width: 0; padding: 20px; background: rgba(255,255,255,.06); border: 1px solid var(--line-light); }
+.download-grid .local-download { width: 100%; }
+.download-grid code { overflow-wrap: anywhere; }
 .short-scope { padding: 30px; background: rgba(255,255,255,.06); border: 1px solid var(--line-light); }
 .short-scope h3 { margin: 0 0 18px; font: 400 26px/1.1 Georgia, serif; }
 .short-scope p { margin: 12px 0 0; color: rgba(255,255,255,.62); font-size: 13px; line-height: 1.65; }
@@ -318,6 +326,7 @@ img, svg { display: block; max-width: 100%; }
   .hero { padding: 125px 0 78px; }
   .hero h1 { font-size: 50px; overflow-wrap: anywhere; }
   .hero-lede { font-size: 17px; }
+  .setup-choices, .download-grid { grid-template-columns: 1fr; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button { width: 100%; }
   .hero-facts { gap: 18px; }

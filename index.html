@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Open-source Claude skills that work with matter files, preserve recorded history and state, and help lawyers move work forward.">
+  <meta name="description" content="Open-source Claude and Codex skills that work with matter files, preserve recorded history and state, and help lawyers move work forward.">
   <meta name="theme-color" content="#15181d">
-  <title>LawyeredOS — Claude skills for legal work</title>
+  <title>LawyeredOS — Claude and Codex skills for legal work</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -24,15 +24,16 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="shell compact-hero-layout">
         <div class="hero-copy">
-          <div class="eyebrow-row"><span class="status-dot"></span><span>Free, open-source Claude skills · macOS public beta</span></div>
-          <h1>Claude with the right skills. <em>Not another legal SaaS.</em></h1>
+          <div class="eyebrow-row"><span class="status-dot"></span><span>Free, open-source Claude and Codex skills · macOS public beta</span></div>
+          <h1>Your AI assistant with the right skills. <em>Not another legal SaaS.</em></h1>
           <p class="hero-lede">Work from the matter files you choose. Keep recorded history and state in your workspace. Identify and execute the next step under lawyer oversight.</p>
-          <p class="hero-support">Free and open source. Bring your own Claude subscription.</p>
+          <p class="hero-support">Free and open source. Bring your own Claude or Codex access.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="downloads/lawyeredos-0.2.0-macos-beta.2.zip" download>Download macOS beta.2 <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="downloads/lawyeredos-0.2.0-macos-beta.2.zip" download>Claude beta.2 <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="downloads/lawyeredos-0.2.0-macos-codex-beta.1.zip" download>Codex beta.1 <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" href="#how">See how it works <span aria-hidden="true">→</span></a>
           </div>
-          <p class="beta-label">Version 0.2.0 beta.2 · Claude Desktop Code · Local on macOS</p>
+          <p class="beta-label">Claude 0.2.0 beta.2 · Codex 0.2.0 beta.1 · Local projects on macOS</p>
         </div>
       </div>
     </section>
@@ -53,13 +54,16 @@
         <div class="setup-main">
           <p class="kicker">Setup</p>
           <h2>Open. Ask. Review.</h2>
-          <p>Download and extract the ZIP. Open its folder in the Claude desktop app’s <strong>Code</strong> tab and choose <strong>Local</strong>. Then paste:</p>
-          <div class="install-prompt" role="group" aria-label="Copyable LawyeredOS setup prompt">Set up LawyeredOS for me. Follow the setup instructions in this folder, ask me what you need, and check with me before changing existing files.</div>
-          <p class="setup-safety">Claude shows the complete setup plan before writing and asks you to connect Gmail, skip it safely, or choose the experimental read-only route. It never silently disables email or enables automatic sending. Start with a new empty workspace and fictional data.</p>
+          <div class="setup-choices">
+            <article><h3>Claude Desktop</h3><p>Extract the Claude ZIP. Open its <code>lawyeredos</code> folder in the <strong>Code</strong> tab and choose <strong>Local</strong>.</p></article>
+            <article><h3>Codex</h3><p>Extract the Codex ZIP. Open its <code>lawyeredos</code> folder as a local Codex project.</p></article>
+          </div>
+          <div class="install-prompt" role="group" aria-label="Copyable LawyeredOS setup prompt">Set up LawyeredOS for me in a new private workspace. Use fictional data, show me the complete plan, and check with me before changing files.</div>
+          <p class="setup-safety">Setup asks how to handle email and never treats configuration as proof of a connection. It does not authorize an account, store credentials, or enable automatic sending. Start with a new empty workspace and fictional data.</p>
         </div>
         <aside class="setup-notes" aria-label="Setup details">
           <strong>No terminal required</strong>
-          <p>The normal path is prompt-first in Desktop Code Local. A terminal fallback and complete install, update, rollback, dependency, and troubleshooting instructions are included in the download.</p>
+          <p>The normal path is prompt-first in a local project. Complete install, update, rollback, dependency, and troubleshooting instructions are included in each download.</p>
         </aside>
       </div>
     </section>
@@ -69,27 +73,29 @@
         <div class="release-copy">
           <p class="kicker kicker-light">Public macOS beta</p>
           <h2>Try LawyeredOS.</h2>
-          <p>Free and open source under GPL-3.0-or-later. Download the complete, versioned source ZIP and open it directly in Desktop Code Local.</p>
-          <a class="button button-primary local-download" href="downloads/lawyeredos-0.2.0-macos-beta.2.zip" download>Download version 0.2.0 beta.2 <span aria-hidden="true">↓</span></a>
-          <p class="download-note">SHA-256: <code>0f3eccf6e62e0bcb7ffbb88a6c14dd2f96c8a05acba73b93bb4bff3173af7cd5</code></p>
+          <p>Free and open source under GPL-3.0-or-later. Choose the package for your host.</p>
+          <div class="download-grid">
+            <article><h3>Claude Desktop</h3><a class="button button-primary local-download" href="downloads/lawyeredos-0.2.0-macos-beta.2.zip" download>Download 0.2.0 beta.2 <span aria-hidden="true">↓</span></a><p class="download-note">SHA-256: <code>0f3eccf6e62e0bcb7ffbb88a6c14dd2f96c8a05acba73b93bb4bff3173af7cd5</code></p></article>
+            <article><h3>Codex</h3><a class="button button-primary local-download" href="downloads/lawyeredos-0.2.0-macos-codex-beta.1.zip" download>Download 0.2.0 beta.1 <span aria-hidden="true">↓</span></a><p class="download-note">SHA-256: <code>b468300f81bfdcc88398964a2808f6484c5cd2fb56b44d48e6721ab2d7d6e366</code></p></article>
+          </div>
         </div>
         <aside class="short-scope" aria-label="Beta scope">
           <h3>Current beta scope</h3>
-          <p>Verified on macOS with Claude Desktop Code in a Local session and Python 3.12.</p>
-          <p>Windows and other operating systems are not supported. Claude Gmail is user-connected and locally unverifiable; the local Gmail adapter, Calendar, OCR, and the complete multi-lens review remain experimental or optional.</p>
+          <p>Verified on macOS with Python 3.12. Claude uses Desktop Code Local; Codex uses project-local skills and a local project.</p>
+          <p>Windows, Linux, cloud hosts, live Gmail, OCR, and other runtime versions remain unverified or excluded. Review-agent tool limits are behavioral and backed by schema and file-hash checks.</p>
         </aside>
       </div>
     </section>
 
     <section class="risk-notice" aria-label="Important safety notice">
-      <div class="shell"><strong>Use with professional judgment.</strong><p>LawyeredOS is software, not legal advice. Verify facts, law, deadlines, calculations, document changes, and final work before relying, sending, signing, filing, or serving. Local files are not the same as offline processing: selected content may be sent to Anthropic under your Claude account, settings, and terms.</p></div>
+      <div class="shell"><strong>Use with professional judgment.</strong><p>LawyeredOS is software, not legal advice. Verify facts, law, deadlines, calculations, document changes, and final work before relying, sending, signing, filing, or serving. Local files are not the same as offline processing: selected content may be sent to Anthropic or OpenAI under your account, settings, and terms.</p></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-layout">
       <a class="brand brand-footer" href="#top" aria-label="Back to top"><span class="brand-mark" aria-hidden="true"><span>L</span></span><span class="brand-word">Lawyered<span>OS</span></span></a>
-      <p>Public beta · No analytics · No transmitted forms</p><p>GPL-3.0-or-later · v0.2.0 beta.2</p>
+      <p>Public beta · No analytics · No transmitted forms</p><p>GPL-3.0-or-later · Claude beta.2 · Codex beta.1</p>
     </div>
   </footer>
 </body>
