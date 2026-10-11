@@ -8,12 +8,12 @@ lawyer oversight.
 
 Choose the host you use:
 
-- **Claude Desktop:** [macOS 0.2.1 beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-beta.1.zip)
-- **Codex:** [macOS 0.2.1 Codex beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-codex-beta.1.zip)
+- **Claude Desktop:** [macOS 0.2.2 beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.2-macos-beta.1.zip)
+- **Codex:** [macOS 0.2.2 Codex beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.2-macos-codex-beta.1.zip)
 
 ```text
-Claude 0.2.1 beta.1 SHA-256: 1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856
-Codex 0.2.1 beta.1 SHA-256: 1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856
+Claude 0.2.2 beta.1 SHA-256: b9bb69afde0b62d4a4a4211cad8ff08e98d1d376f688c149d10a5805b2e640ee
+Codex 0.2.2 beta.1 SHA-256: b9bb69afde0b62d4a4a4211cad8ff08e98d1d376f688c149d10a5805b2e640ee
 ```
 
 For Claude, extract the ZIP, open its `lawyeredos` folder in the Claude desktop
@@ -29,11 +29,14 @@ experimental local read-only adapter. Setup does not authorize an account,
 store credentials, or enable automatic sending.
 
 The two filenames contain the same reviewed shared-core archive; setup selects
-the host-specific Claude or Codex discovery layer. Matter-mail intake now
-supports complete bounded bodies, resumable review, safe supported attachments,
-and repeat deduplication. One exact user-created Gmail thread passed the
-read-only IMAP workflow on both supported desktop hosts. Broader mailbox use,
-OAuth/REST, sending, and mailbox mutation remain untested or excluded.
+the host-specific Claude or Codex discovery layer. This release adds
+private-by-construction workspace files, guarded durable matter writes,
+audience-aware draft review, proportional review modes, template-integrity
+checks, section-aware long-brief orientation, and safer Codex upgrade rollback.
+The new behavior passed deterministic fictional and installed-archive tests on
+both supported hosts. No new authenticated Claude or live-account acceptance
+was run; broader mailbox use, OAuth/REST, sending, and mailbox mutation remain
+untested or excluded.
 
 LawyeredOS is software, not legal advice. Verify the work before relying,
 sending, signing, filing, or serving. Local files are not the same as offline
