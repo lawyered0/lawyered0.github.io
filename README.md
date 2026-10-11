@@ -8,12 +8,12 @@ lawyer oversight.
 
 Choose the host you use:
 
-- **Claude Desktop:** [macOS 0.2.2 beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.2-macos-beta.1.zip)
-- **Codex:** [macOS 0.2.2 Codex beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.2-macos-codex-beta.1.zip)
+- **Claude Desktop:** [macOS 0.2.3 beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.3-macos-beta.1.zip)
+- **Codex:** [macOS 0.2.3 Codex beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.3-macos-codex-beta.1.zip)
 
 ```text
-Claude 0.2.2 beta.1 SHA-256: b9bb69afde0b62d4a4a4211cad8ff08e98d1d376f688c149d10a5805b2e640ee
-Codex 0.2.2 beta.1 SHA-256: b9bb69afde0b62d4a4a4211cad8ff08e98d1d376f688c149d10a5805b2e640ee
+Claude 0.2.3 beta.1 SHA-256: c5b28fb086f18dc09c2ec89062a578e06469036538d71953cb8134f59312ce35
+Codex 0.2.3 beta.1 SHA-256: c5b28fb086f18dc09c2ec89062a578e06469036538d71953cb8134f59312ce35
 ```
 
 For Claude, extract the ZIP, open its `lawyeredos` folder in the Claude desktop
@@ -28,20 +28,31 @@ whether to use an already-authorized session read tool, skip email, or use the
 experimental local read-only adapter. Setup does not authorize an account,
 store credentials, or enable automatic sending.
 
-The two filenames contain the same reviewed shared-core archive; setup selects
-the host-specific Claude or Codex discovery layer. This release adds
-private-by-construction workspace files, guarded durable matter writes,
-audience-aware draft review, proportional review modes, template-integrity
-checks, section-aware long-brief orientation, and safer Codex upgrade rollback.
-The new behavior passed deterministic fictional and installed-archive tests on
-both supported hosts. No new authenticated Claude or live-account acceptance
-was run; broader mailbox use, OAuth/REST, sending, and mailbox mutation remain
-untested or excluded.
+The two filenames contain the same reviewed 172-member, 1,554,842-byte archive;
+setup selects the host-specific Claude or Codex discovery layer. This release
+adds shared source, advice, record and intake contracts plus nine manual workflow
+modules: contract review, demands, inbound demand triage, sourced advocacy,
+chronology, daily attention, inbox workup, overdue triage and orientation checks.
+The existing matter skill reads the catalog and selected module. Six native
+installer options remain; the new modules are not separate native skills.
+
+Required reviewed-head and protected-merge CI, 254 project tests, 103 vendored
+tests, ordinary acceptance, strict plugin/archive checks and fresh both-host
+installed-reference checks passed. Python behavior and existing optional
+jurisdiction profiles are unchanged. These checks do not establish new
+substantive model behavior, legal correctness, live connectors or broader host
+compatibility. Practice-wide mail needs bounded supplied sources or an actually
+authorized active tool. Mail/calendar were disabled in fresh installs and OCR
+was unavailable. Historical downloads remain unchanged.
+
+See the [release record](https://github.com/lawyered0/lawyeredos/releases/tag/v0.2.3-beta.1)
+and [workflow catalog](https://github.com/lawyered0/lawyeredos/blob/main/docs/WORKFLOW-CATALOG.md).
 
 LawyeredOS is software, not legal advice. Verify the work before relying,
 sending, signing, filing, or serving. Local files are not the same as offline
 processing: selected content may be sent to Anthropic or OpenAI under your
 account, settings, and terms.
 
-The complete website and beta download are published from this repository. The
-development repository remains private.
+The distribution page source and versioned downloads are maintained here.
+The [development repository](https://github.com/lawyered0/lawyeredos) is public;
+source changes do not replace immutable release archives.
