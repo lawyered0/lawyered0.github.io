@@ -1,6 +1,6 @@
 # How LawyeredOS works
 
-This guide explains the LawyeredOS **Claude 0.2.0 beta.3** and **Codex 0.2.0 beta.2** downloads for macOS, what each part does, and which parts are tested versus experimental. It describes those releases only. Later builds may differ.
+This guide explains the LawyeredOS **Claude 0.2.1 beta.1** and **Codex 0.2.1 beta.1** downloads for macOS, what each part does, and which parts are tested versus experimental. It describes those releases only. Later builds may differ.
 
 LawyeredOS is software, not legal advice. Claude and Codex can make material errors. Verify facts, law, deadlines, calculations, document changes and final work before you rely on them or send, sign, file or serve anything.
 
@@ -103,17 +103,17 @@ Each package includes seven skills and a host-specific review workflow. Each ent
 
 | Area | Status in the current macOS betas |
 |---|---|
-| macOS, Python 3.12, Claude Desktop Code Local | Tested in Claude beta.3; mail's ordinary-host path remains unverified |
-| macOS, Python 3.12, Codex local project and project-local skills | Tested in Codex beta.2; mail tools remain session-dependent and unverified in an ordinary host |
+| macOS, Python 3.12, Claude Desktop Code Local | Tested in Claude 0.2.1 beta.1, including the bounded read-only IMAP acceptance below |
+| macOS, Python 3.12, Codex local project and project-local skills | Tested in Codex 0.2.1 beta.1, including the bounded read-only IMAP acceptance below |
 | Matter register and matter orientation | Tested |
 | Previewed, no-overwrite saves | Tested |
 | Word letters and simple tracked-change redlines | Tested (optional modules) |
 | Setup, update and rollback | Tested |
 | Full four-angle review | Experimental |
-| Claude Gmail connector | Configurable through Claude's user-facing consent flow. One bounded, user-created Gmail thread passed the delegated development-session path: complete body, three hash-bound DOCX review chunks, checkpoint completion, and repeat deduplication. This is not ordinary-host acceptance. A successful bounded read is still required before reporting it connected. The connector may expose send and mailbox actions; LawyeredOS does not invoke them. |
-| Codex email access | Not assumed. Setup uses an already-authorized supported session read tool only when it is actually available, otherwise it offers a safe skip or the experimental local adapter. No ordinary-host live-mail acceptance was run. |
+| Claude Gmail connector | Configurable through Claude's user-facing consent flow, but not used for the 0.2.1 ordinary-host IMAP acceptance. A successful bounded read is required before reporting it connected. The connector may expose send and mailbox actions; LawyeredOS does not invoke them. |
+| Codex email access | Not assumed. Setup uses an already-authorized supported session read tool only when it is actually available, otherwise it offers a safe skip or the experimental local adapter. Session-tool live-mail acceptance was not run. |
 | Local Gmail REST adapter | Experimental explicit opt-in using a separately provisioned `gmail.readonly` token. It supports bounded full-message and supported-attachment retrieval with read-only requests. Tested only with simulated responses. |
-| Portable Gmail IMAP adapter | Experimental explicit opt-in using user-selected credential sources, localized All Mail discovery, read-only selection, and `BODY.PEEK`. Comprehensive fake-IMAP coverage passed; no live IMAP credential or mailbox was used. |
+| Portable Gmail IMAP adapter | Experimental explicit opt-in using a user-selected credential source, localized All Mail discovery, read-only selection, and `BODY.PEEK`. One exact self-addressed test thread passed ordinary-host acceptance in Claude Desktop Code Local and Codex Desktop: one complete body, three hash-bound DOCX chunks, checkpoint completion, repeat deduplication, and guarded bundle deletion. This does not establish broader mailbox, account, OAuth/REST, sending, or mailbox-mutation coverage. |
 | Live Google Calendar | Experimental, off by default. Tested only with simulated responses. |
 | OCR of scanned PDFs | Experimental, not verified on the test machine |
 | Python 3.11 or 3.13+ | Within the declared range, not tested |
@@ -137,13 +137,14 @@ LawyeredOS is free and open source under GPL-3.0-or-later. The bundled redline e
 
 Downloads:
 
-- [Claude 0.2.0 beta.3 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.3.zip)
-- [Codex 0.2.0 beta.2 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-codex-beta.2.zip)
+- [Claude 0.2.1 beta.1 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-beta.1.zip)
+- [Codex 0.2.1 beta.1 for macOS](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-codex-beta.1.zip)
 
-Claude SHA-256: `65f8d412e6ee656fc525f64f13ff84b35f631ae9878d71a6aef88e0d2e359e67`
+Claude SHA-256: `1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856`
 
-Codex SHA-256: `65f8d412e6ee656fc525f64f13ff84b35f631ae9878d71a6aef88e0d2e359e67`
+Codex SHA-256: `1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856`
 
-The owner expressly waived ordinary-host Gmail and live IMAP/REST acceptance
-as a beta.3/beta.2 publication prerequisite. Those paths remain experimental
-and unverified; the waiver is not evidence that they work.
+The 0.2.1 acceptance was deliberately narrow. It used one exact user-created
+thread through the portable read-only IMAP route on each supported desktop
+host. OAuth/REST, broader searches and accounts, sending, and mailbox mutations
+were not accepted by that test.
