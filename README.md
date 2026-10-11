@@ -8,12 +8,12 @@ lawyer oversight.
 
 Choose the host you use:
 
-- **Claude Desktop:** [macOS 0.2.0 beta.3 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-beta.3.zip)
-- **Codex:** [macOS 0.2.0 Codex beta.2 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.0-macos-codex-beta.2.zip)
+- **Claude Desktop:** [macOS 0.2.1 beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-beta.1.zip)
+- **Codex:** [macOS 0.2.1 Codex beta.1 source ZIP](https://raw.githubusercontent.com/lawyered0/lawyered0.github.io/main/downloads/lawyeredos-0.2.1-macos-codex-beta.1.zip)
 
 ```text
-Claude beta.3 SHA-256: 65f8d412e6ee656fc525f64f13ff84b35f631ae9878d71a6aef88e0d2e359e67
-Codex beta.2 SHA-256: 65f8d412e6ee656fc525f64f13ff84b35f631ae9878d71a6aef88e0d2e359e67
+Claude 0.2.1 beta.1 SHA-256: 1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856
+Codex 0.2.1 beta.1 SHA-256: 1e7d886c76e2e6cbfeee33bf14833995db91fde2b4a7d1e1565dcb4769d14856
 ```
 
 For Claude, extract the ZIP, open its `lawyeredos` folder in the Claude desktop
@@ -31,10 +31,9 @@ store credentials, or enable automatic sending.
 The two filenames contain the same reviewed shared-core archive; setup selects
 the host-specific Claude or Codex discovery layer. Matter-mail intake now
 supports complete bounded bodies, resumable review, safe supported attachments,
-and repeat deduplication. One user-created Gmail thread passed the delegated
-connector path. Ordinary-host Gmail and live IMAP/REST remain experimental and
-unverified; the publication owner expressly waived those live tests as a beta
-prerequisite, not as evidence that they work.
+and repeat deduplication. One exact user-created Gmail thread passed the
+read-only IMAP workflow on both supported desktop hosts. Broader mailbox use,
+OAuth/REST, sending, and mailbox mutation remain untested or excluded.
 
 LawyeredOS is software, not legal advice. Verify the work before relying,
 sending, signing, filing, or serving. Local files are not the same as offline
